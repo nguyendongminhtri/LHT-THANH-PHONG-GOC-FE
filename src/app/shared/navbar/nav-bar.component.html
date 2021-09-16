@@ -1,0 +1,36 @@
+<nav class="docs-navbar-header" aria-label="Top Toolbar">
+  <a mat-button class="docs-button" routerLink="/" aria-label="Angular Material">
+    <img class="docs-angular-logo" src="https://raw.githubusercontent.com/vmudigal/ngx-audio-player/master/src/assets/images/logos/angular/angular-white-transparent.svg"
+      alt="">
+    <span>Audio Player</span>
+  </a>
+  <a *ngIf="!isLogin" mat-button class="docs-button" routerLink="register" aria-label="Angular Material">
+    <span>Register</span>
+  </a>
+  <a *ngIf="!isLogin" mat-button class="docs-button" routerLink="login" aria-label="Angular Material">
+    <span>Login</span>
+  </a>
+  <a *ngIf="isLogin" mat-button class="docs-button" routerLink="user-account" aria-label="Angular Material">
+    <span>{{name}}</span>
+  </a>
+  <a *ngIf="isLogin" style="color: springgreen; text-decoration: none;"
+     aria-label="Angular Audio Player"
+     mat-button tabindex="0" aria-disabled="false" routerLink="change-avatar"><span class="mat-button-wrapper">
+        <img  style="border-radius: 50%" alt="angular" class="image-change" [src]=avatar width="40px" height="40px"></span>
+    <div class="mat-button-ripple mat-ripple" matripple=""></div>
+    <div class="mat-button-focus-overlay"></div>
+  </a><span class="example-spacer"></span>
+  <div class="flex-spacer"></div>
+  <app-theme-picker></app-theme-picker>
+  <a mat-button class="docs-button docs-navbar-hide-small" target="_blank" href="https://github.com/vmudigal/ngx-audio-player"
+    aria-label="GitHub Repository">
+    <img class="docs-angular-logo" src="https://raw.githubusercontent.com/vmudigal/ngx-audio-player/master/src/assets/images/logos/angular/github-circle-white-transparent.svg"
+      alt="">
+    GitHub
+  </a>
+  <a mat-icon-button class="docs-button docs-navbar-show-small" href="https://github.com/vmudigal/ngx-audio-player"
+    aria-label="GitHub Repository">
+    <img class="docs-angular-logo" src="https://raw.githubusercontent.com/vmudigal/ngx-audio-player/master/src/assets/images/logos/angular/github-circle-white-transparent.svg"
+      alt="">
+  </a>
+</nav>
