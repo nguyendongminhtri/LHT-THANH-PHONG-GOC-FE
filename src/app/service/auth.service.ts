@@ -15,6 +15,7 @@ export class AuthService {
   private API_SIGNIN = environment.API_LOCAL+'signin';
   private API_CHANGE_PASSWORD = environment.API_LOCAL + 'change-password';
   private API_CHANGE_AVATAR = environment.API_LOCAL + 'change-avatar';
+  private API_CHANGE_PROFILE = environment.API_LOCAL+'change-profile';
   //API SERVER
   // private API_SIGNIN = environment.API_SERVER+'signin';
 
@@ -30,6 +31,9 @@ export class AuthService {
   }
   changeAvatar(info: any):Observable<JwtResponse>{
     return this.http.put<JwtResponse>(this.API_CHANGE_AVATAR, info);
+  }
+  changeProfile(info: any):Observable<JwtResponse>{
+    return this.http.put<JwtResponse>(this.API_CHANGE_PROFILE, info);
   }
  public data: boolean;
   setData(data: boolean){

@@ -35,6 +35,7 @@ import {environment} from '../environments/environment.prod';
 import { UploadAvatarComponent } from './upload/upload-avatar/upload-avatar.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ChangeAvatarComponent } from './form-login/manage-profile/change-avatar/change-avatar.component';
+import { ChangeProfileComponent } from './form-login/manage-profile/change-profile/change-profile.component';
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent, data: {title: 'Home'}},
@@ -43,15 +44,15 @@ export const appRoutes: Routes = [
   {path: 'user-account', component: UserAccountComponent, data: {title: 'User-Account'}},
   {path: 'change-password', component: ChangePasswordComponent, data: {title: 'Change-Password'}},
   {path: 'change-avatar', component: ChangeAvatarComponent, data: {title: 'Change-Avatar'}},
-  {
-    path: 'guide/getting-started',
+  {path: 'change-profile', component: ChangeProfileComponent, data: {title: 'Change-Profile'}},
+  {path: 'guide/getting-started',
     component: GettingStartedComponent,
     data: {title: 'Getting Started'}
   }
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, ChangeAvatarComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, ChangeAvatarComponent, ChangeProfileComponent],
   imports: [
     HttpClientModule,
     BrowserModule,

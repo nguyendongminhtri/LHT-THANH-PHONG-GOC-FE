@@ -43,4 +43,8 @@ export class TokenService {
     }
     return this.roles;
   }
+  logOut(){
+    window.sessionStorage.clear();
+    window.location.reload();
+  }
 }
