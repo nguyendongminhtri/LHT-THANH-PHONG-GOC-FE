@@ -35,6 +35,7 @@ export class AuthService {
   changeProfile(info: any):Observable<JwtResponse>{
     return this.http.put<JwtResponse>(this.API_CHANGE_PROFILE, info);
   }
+
  public data: boolean;
   setData(data: boolean){
     this.data = data;

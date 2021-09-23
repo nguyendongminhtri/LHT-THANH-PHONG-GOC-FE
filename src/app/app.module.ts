@@ -36,6 +36,8 @@ import { UploadAvatarComponent } from './upload/upload-avatar/upload-avatar.comp
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ChangeAvatarComponent } from './form-login/manage-profile/change-avatar/change-avatar.component';
 import { ChangeProfileComponent } from './form-login/manage-profile/change-profile/change-profile.component';
+import { PageUserComponent } from './admin-manage/page-user/page-user.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent, data: {title: 'Home'}},
@@ -45,6 +47,7 @@ export const appRoutes: Routes = [
   {path: 'change-password', component: ChangePasswordComponent, data: {title: 'Change-Password'}},
   {path: 'change-avatar', component: ChangeAvatarComponent, data: {title: 'Change-Avatar'}},
   {path: 'change-profile', component: ChangeProfileComponent, data: {title: 'Change-Profile'}},
+  // {path: 'page-user', component: PageUserComponent, data: {title: 'Page-User'}},
   {path: 'guide/getting-started',
     component: GettingStartedComponent,
     data: {title: 'Getting Started'}
@@ -52,7 +55,7 @@ export const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, ChangeAvatarComponent, ChangeProfileComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, ChangeAvatarComponent, ChangeProfileComponent, PageUserComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -70,7 +73,7 @@ export const appRoutes: Routes = [
     BrowserAnimationsModule,
     NavBarModule, FooterModule,
     NgxAudioPlayerModule,
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
