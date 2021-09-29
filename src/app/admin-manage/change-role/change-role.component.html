@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0">
+                <mat-card-header>
+                    <div mat-card-avatar>
+                        <img class="image1" [src]="user.avatar" height="50px" width="50px">
+                    </div>
+                    <mat-card-title class="information" style="color: #3F51B5">USER INFORMATION</mat-card-title>
+                    <mat-card-subtitle style="color: #9C27B0"><b style="color: #3F51B5">Name: </b>{{user.name}} </mat-card-subtitle>
+                    <mat-card-subtitle style="color: #9C27B0"><b style="color: #3F51B5">Username: </b>{{user.username}} </mat-card-subtitle>
+                    <mat-card-subtitle style="color: #9C27B0"><b style="color: #3F51B5">Email: </b>{{user.email}} </mat-card-subtitle>
+                    <mat-card-subtitle *ngFor="let role of user.roles" style="color: #9C27B0"><b style="color: #9C27B0">Role: </b>{{role.name}} </mat-card-subtitle>
+                </mat-card-header>
+                <form>
+                    <mat-form-field appearance="fill">
+                        <mat-label style="color: red">Change Role User</mat-label>
+                        <select matNativeControl [(ngModel)]="form.role" (ngModelChange)="form.role=$event" [ngModelOptions]="{standalone: true}">
+                            <option *ngIf="!isCheckRoleAdmin" value="admin">ADMIN</option>
+                            <option *ngIf="!isCheckRolePM" value="pm">PM</option>
+                            <option *ngIf="!isCheckRoleUser" value="user">USER</option>
+                        </select>
+                    </mat-form-field><br>
+                    <button (click)="onChangeRole()" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success">Change Role
+                        <mat-icon color="accent" matSuffix>published_with_changes</mat-icon>
+                    </button>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>

@@ -5,6 +5,9 @@
                 <mat-card-title align="center" class="alert alert-primary">ADMIN MANAGE</mat-card-title>
                 <div class="row">
                     <div class="column" *ngFor="let user of users">
+                        <button [routerLink]="['/change-role/',user.id]" mat-icon-button color="primary">
+                            <mat-icon>edit</mat-icon>
+                        </button>
                         <div class="card">
                             <i style="font-size: 1.5vw; color: crimson">{{user.username}}</i>
                             <i style="font-size: 1.5vw; color: crimson">{{user.email}}</i>
