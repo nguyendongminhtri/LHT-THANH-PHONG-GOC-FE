@@ -18,12 +18,17 @@ export class NavBarComponent implements OnInit{
   name: string;
   isLogin = false;
   avatar: string;
+  admin = ["ADMIN"]
+  isCheckAdmin = false;
   ngOnInit(): void {
     console.log('token ==> ', this.tokenService.getToken())
     if(this.tokenService.getToken()){
       this.name = this.tokenService.getName();
       this.avatar = this.tokenService.getAvatar();
       this.isLogin = true;
+      if(JSON.stringify(this.tokenService.getRoles())==JSON.stringify(this.admin)){
+        this.isCheckAdmin = true;
+      }
     }
   }
   constructor(private tokenService: TokenService) {

@@ -38,16 +38,22 @@ import { ChangeAvatarComponent } from './form-login/manage-profile/change-avatar
 import { ChangeProfileComponent } from './form-login/manage-profile/change-profile/change-profile.component';
 import { PageUserComponent } from './admin-manage/page-user/page-user.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { ChangeRoleComponent } from './admin-manage/change-role/change-role.component';
+import {AuthGuard} from './service/auth.guard';
+import {AdminGuard} from './service/admin.guard';
+import { DialogContentExampleDialogComponent } from './admin-manage/dialog-content-example-dialog/dialog-content-example-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent, data: {title: 'Home'}},
   {path: 'register', component: RegisterComponent, data: {title: 'Register'}},
   {path: 'login', component: LoginComponent, data: {title: 'Login'}},
-  {path: 'user-account', component: UserAccountComponent, data: {title: 'User-Account'}},
+  {path: 'user-account', component: UserAccountComponent,canActivate: [AuthGuard], data: {title: 'User-Account'}},
   {path: 'change-password', component: ChangePasswordComponent, data: {title: 'Change-Password'}},
   {path: 'change-avatar', component: ChangeAvatarComponent, data: {title: 'Change-Avatar'}},
-  {path: 'change-profile', component: ChangeProfileComponent, data: {title: 'Change-Profile'}},
-  // {path: 'page-user', component: PageUserComponent, data: {title: 'Page-User'}},
+  {path: 'change-profile', component: ChangeProfileComponent, canActivate: [AuthGuard], data: {title: 'Change-Profile'}},
+  {path: 'page-user', component: PageUserComponent, canActivate: [AdminGuard],data: {title: 'Page-User'}},
+  {path: 'change-role/:id', component: ChangeRoleComponent, data: {title: 'Change-Role'}},
   {path: 'guide/getting-started',
     component: GettingStartedComponent,
     data: {title: 'Getting Started'}
@@ -55,7 +61,7 @@ export const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, ChangeAvatarComponent, ChangeProfileComponent, PageUserComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, ChangeAvatarComponent, ChangeProfileComponent, PageUserComponent, ChangeRoleComponent, DialogContentExampleDialogComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -73,7 +79,7 @@ export const appRoutes: Routes = [
     BrowserAnimationsModule,
     NavBarModule, FooterModule,
     NgxAudioPlayerModule,
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatDialogModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
