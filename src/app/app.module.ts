@@ -43,6 +43,7 @@ import {AuthGuard} from './service/auth.guard';
 import {AdminGuard} from './service/admin.guard';
 import { DialogContentExampleDialogComponent } from './admin-manage/dialog-content-example-dialog/dialog-content-example-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { CreateCategoryComponent } from './content/categoryManage/create-category/create-category.component';
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent, data: {title: 'Home'}},
@@ -54,6 +55,7 @@ export const appRoutes: Routes = [
   {path: 'change-profile', component: ChangeProfileComponent, canActivate: [AuthGuard], data: {title: 'Change-Profile'}},
   {path: 'page-user', component: PageUserComponent, canActivate: [AdminGuard],data: {title: 'Page-User'}},
   {path: 'change-role/:id', component: ChangeRoleComponent, data: {title: 'Change-Role'}},
+  { path: 'create-category', component: CreateCategoryComponent, data: {title: 'Create-Category'}},
   {path: 'guide/getting-started',
     component: GettingStartedComponent,
     data: {title: 'Getting Started'}
@@ -61,7 +63,7 @@ export const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, ChangeAvatarComponent, ChangeProfileComponent, PageUserComponent, ChangeRoleComponent, DialogContentExampleDialogComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, ChangeAvatarComponent, ChangeProfileComponent, PageUserComponent, ChangeRoleComponent, DialogContentExampleDialogComponent, CreateCategoryComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
