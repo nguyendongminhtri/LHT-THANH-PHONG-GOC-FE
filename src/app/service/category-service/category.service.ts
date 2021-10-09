@@ -14,4 +14,8 @@ export class CategoryService {
   createCategory(category: Category): Observable<Category>{
     return this.http.post<Category>(this.API_CATEGORY, category)
   }
+  pageCategory(request){
+    const params = request;
+    return this.http.get(this.API_CATEGORY, {params})
+  }
 }

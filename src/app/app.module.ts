@@ -44,6 +44,8 @@ import {AdminGuard} from './service/admin.guard';
 import { DialogContentExampleDialogComponent } from './admin-manage/dialog-content-example-dialog/dialog-content-example-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CreateCategoryComponent } from './content/categoryManage/create-category/create-category.component';
+import { PageCategoryComponent } from './content/categoryManage/page-category/page-category.component';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent, data: {title: 'Home'}},
@@ -55,7 +57,8 @@ export const appRoutes: Routes = [
   {path: 'change-profile', component: ChangeProfileComponent, canActivate: [AuthGuard], data: {title: 'Change-Profile'}},
   {path: 'page-user', component: PageUserComponent, canActivate: [AdminGuard],data: {title: 'Page-User'}},
   {path: 'change-role/:id', component: ChangeRoleComponent, data: {title: 'Change-Role'}},
-  { path: 'create-category', component: CreateCategoryComponent, data: {title: 'Create-Category'}},
+  { path: 'create-category', component: CreateCategoryComponent,canActivate: [AuthGuard],data: {title: 'Create-Category'}},
+  { path: 'page-category', component: PageCategoryComponent, data: {title: 'Page-Category'}},
   {path: 'guide/getting-started',
     component: GettingStartedComponent,
     data: {title: 'Getting Started'}
@@ -63,7 +66,7 @@ export const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, ChangeAvatarComponent, ChangeProfileComponent, PageUserComponent, ChangeRoleComponent, DialogContentExampleDialogComponent, CreateCategoryComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, ChangeAvatarComponent, ChangeProfileComponent, PageUserComponent, ChangeRoleComponent, DialogContentExampleDialogComponent, CreateCategoryComponent, PageCategoryComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -81,7 +84,7 @@ export const appRoutes: Routes = [
     BrowserAnimationsModule,
     NavBarModule, FooterModule,
     NgxAudioPlayerModule,
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatDialogModule
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatDialogModule, Ng2SearchPipeModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
