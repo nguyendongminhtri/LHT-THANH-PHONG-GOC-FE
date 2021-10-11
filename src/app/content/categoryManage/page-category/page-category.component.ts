@@ -13,16 +13,22 @@ import {TokenService} from '../../../service/token.service';
 export class PageCategoryComponent implements OnInit {
   totalElements: number = 0;
   categorys: Category[] = [];
+  searchCategorys: Category[] = [];
   searchText;
+  nameCategory;
   loading: boolean;
   isCheckUser = false;
+  checkSearch = false;
+  sizeSearch: number = 0;
   constructor(private categoryService: CategoryService,
               private tokenService: TokenService) { }
 
   ngOnInit(): void {
-    this.getListRequest({page: 0, size: 3});
     if(this.tokenService.getToken()){
       this.isCheckUser = true;
+    }
+    if(!this.checkSearch){
+      this.getListRequest({page:0, size: 3})
     }
   }
   private getListRequest(request) {
@@ -46,5 +52,34 @@ export class PageCategoryComponent implements OnInit {
     request['size'] = event.pageSize.toString();
     console.log('request[size]', request['size']);
     this.getListRequest(request);
+    this.getSearchRequest(request,this.nameCategory);
   }
+  private getSearchRequest(request, nameCategory) {
+    this.loading = true;
+    this.nameCategory = nameCategory;
+    console.log('nameCategory === ', this.nameCategory);
+    if(this.nameCategory == ''){
+      return;
+    }
+    this.categoryService.searchByNameCategory(request,this.nameCategory).subscribe(data => {
+      console.log('data --> ', data);
+      this.searchCategorys = data['content'];
+      console.log('data[content] ---->', data['content']);
+      this.totalElements = data['totalElements'];
+      this.sizeSearch = this.totalElements;
+      console.log('data[totalElements] == ', data['totalElements']);
+      this.loading = false;
+    }, error => {
+      this.loading = false;
+    });
+  }
+  private onSearch(){
+    this.checkSearch = true;
+    console.log('nameCategory == ', this.nameCategory);
+    if(this.nameCategory ==''){
+      this.checkSearch = false;
+      return;
+    }
+      this.getSearchRequest({page:0, size: this.sizeSearch}, this.nameCategory);
+    }
 }

@@ -18,4 +18,13 @@ export class CategoryService {
     const params = request;
     return this.http.get(this.API_CATEGORY, {params})
   }
+  searchByNameCategory(request, search){
+    const params = request;
+    const  nameCategory = search;
+    //Cach 1 ket hop voi  @Requesparam bên BE
+    // return this.http.get(this.API_CATEGORY+'/search?nameCategory='+nameCategory, {params})
+
+    //Cach 2: kết hợp với cách viết dùng @PathVariable
+    return this.http.get(this.API_CATEGORY+'/search/'+nameCategory,{params})
+  }
 }
