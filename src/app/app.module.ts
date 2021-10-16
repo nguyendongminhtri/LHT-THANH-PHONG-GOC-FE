@@ -46,6 +46,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { CreateCategoryComponent } from './content/categoryManage/create-category/create-category.component';
 import { PageCategoryComponent } from './content/categoryManage/page-category/page-category.component';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import { UpdateCategoryComponent } from './content/categoryManage/update-category/update-category.component';
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent, data: {title: 'Home'}},
@@ -59,6 +60,7 @@ export const appRoutes: Routes = [
   {path: 'change-role/:id', component: ChangeRoleComponent, data: {title: 'Change-Role'}},
   { path: 'create-category', component: CreateCategoryComponent,canActivate: [AuthGuard],data: {title: 'Create-Category'}},
   { path: 'page-category', component: PageCategoryComponent, data: {title: 'Page-Category'}},
+  { path: 'update-category/:id', component: UpdateCategoryComponent, data: {title: 'Update-Category'}},
   {path: 'guide/getting-started',
     component: GettingStartedComponent,
     data: {title: 'Getting Started'}
@@ -66,7 +68,7 @@ export const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, ChangeAvatarComponent, ChangeProfileComponent, PageUserComponent, ChangeRoleComponent, DialogContentExampleDialogComponent, CreateCategoryComponent, PageCategoryComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, ChangeAvatarComponent, ChangeProfileComponent, PageUserComponent, ChangeRoleComponent, DialogContentExampleDialogComponent, CreateCategoryComponent, PageCategoryComponent, UpdateCategoryComponent],
   imports: [
     HttpClientModule,
     BrowserModule,

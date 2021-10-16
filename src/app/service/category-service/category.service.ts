@@ -27,4 +27,10 @@ export class CategoryService {
     //Cach 2: kết hợp với cách viết dùng @PathVariable
     return this.http.get(this.API_CATEGORY+'/search/'+nameCategory,{params})
   }
+  getCategoryById(id: number): Observable<Category>{
+    return this.http.get<Category>(`${this.API_CATEGORY}/${id}`)
+  }
+  updateCategory(id: number, category: Category): Observable<Category>{
+    return this.http.put<Category>(`${this.API_CATEGORY}/${id}`, category)
+  }
 }

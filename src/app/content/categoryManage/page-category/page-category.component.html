@@ -24,29 +24,17 @@
                 <h1>Page Search</h1>
                 <div class="row" *ngIf="checkSearch">
                     <div class="column" *ngFor="let ctg of searchCategorys">
-                        <!--                        <button mat-icon-button (click)="openDialog(user.id)">-->
-                        <!--                            <mat-icon color="warn">delete</mat-icon>-->
-                        <!--                        </button>-->
-                        <!--                        <button [routerLink]="['/change-role/',user.id]" mat-icon-button color="primary">-->
-                        <!--                            <mat-icon>edit</mat-icon>-->
-                        <!--                        </button>-->
                         <div class="card">
                             <i style="font-size: 1.5vw; color: crimson">{{ctg.nameCategory}}</i>
                             <img class="img" [src]="ctg.avatarCategory">
                         </div>
                     </div>
                 </div>
-
-<!--                <mat-paginator [pageSizeOptions]="[3,6,15,30,90]" [length]="totalElements" (page)="nextPage($event)"></mat-paginator>-->
-
                 <div class="row" *ngIf="!checkSearch">
                     <div class="column" *ngFor="let ctg of categorys| filter: searchText">
-<!--                        <button mat-icon-button (click)="openDialog(user.id)">-->
-<!--                            <mat-icon color="warn">delete</mat-icon>-->
-<!--                        </button>-->
-<!--                        <button [routerLink]="['/change-role/',user.id]" mat-icon-button color="primary">-->
-<!--                            <mat-icon>edit</mat-icon>-->
-<!--                        </button>-->
+                        <button [routerLink]="['/update-category/',ctg.id]" mat-icon-button color="primary">
+                            <mat-icon>edit</mat-icon>
+                        </button>
                         <div class="card">
                             <i style="font-size: 1.5vw; color: crimson">{{ctg.nameCategory}}</i>
                             <img class="img" [src]="ctg.avatarCategory">

@@ -1,0 +1,31 @@
+<div class="container" *ngIf="category">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0">
+                <mat-card-title class="aler alert-primary">Old Category</mat-card-title>
+                <mat-label>Name Category: <mat-card-title style="color: #9C27B0">{{category.nameCategory}}</mat-card-title></mat-label>
+                <img class="image" [src]="category.avatarCategory">
+            </mat-card>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0">
+               <form class="edit-category" #f="ngForm" (ngSubmit)="f.form.valid&&ngSubmit()" novalidate>
+                   <mat-error class="alert alert-primary">{{status}}</mat-error>
+                   <mat-form-field style="width: 350px" appearance="outline">
+                       <mat-label>Name Category:</mat-label>
+                       <input name="nameCategory" matInput placeholder="Name Category ..." [(ngModel)]="category.nameCategory">
+                       <mat-icon color="accent" matSuffix>category</mat-icon>
+                   </mat-form-field><br>
+                   <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-warning">Change Profile
+                       <mat-icon color="accent" matSuffix>edit</mat-icon>
+                   </button>
+               </form>
+                <app-upload-avatar (giveURLtoCreate)="onChangeAvatar($event)"></app-upload-avatar>
+            </mat-card>
+        </div>
+    </div>
+</div>
