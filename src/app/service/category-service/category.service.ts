@@ -34,4 +34,7 @@ export class CategoryService {
     // return this.http.put<Category>(`${this.API_CATEGORY}/${id}`, category)
     return this.http.put<Category>(this.API_CATEGORY+'/'+id, category)
   }
+  getListCategory(): Observable<Category[]>{
+    return this.http.get<Category[]>(this.API_CATEGORY+'/list')
+  }
 }

@@ -47,6 +47,10 @@ import { CreateCategoryComponent } from './content/categoryManage/create-categor
 import { PageCategoryComponent } from './content/categoryManage/page-category/page-category.component';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import { UpdateCategoryComponent } from './content/categoryManage/update-category/update-category.component';
+import { UploadFileComponent } from './upload/upload-file/upload-file.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { CreateSongComponent } from './content/songManage/create-song/create-song.component';
+import {MatSelectModule} from '@angular/material/select';
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent, data: {title: 'Home'}},
@@ -61,6 +65,7 @@ export const appRoutes: Routes = [
   { path: 'create-category', component: CreateCategoryComponent,canActivate: [AuthGuard],data: {title: 'Create-Category'}},
   { path: 'page-category', component: PageCategoryComponent, data: {title: 'Page-Category'}},
   { path: 'update-category/:id', component: UpdateCategoryComponent, data: {title: 'Update-Category'}},
+  { path: 'create-song', component: CreateSongComponent, data: {title: 'Create-Song'}},
   {path: 'guide/getting-started',
     component: GettingStartedComponent,
     data: {title: 'Getting Started'}
@@ -68,7 +73,7 @@ export const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, ChangeAvatarComponent, ChangeProfileComponent, PageUserComponent, ChangeRoleComponent, DialogContentExampleDialogComponent, CreateCategoryComponent, PageCategoryComponent, UpdateCategoryComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, ChangeAvatarComponent, ChangeProfileComponent, PageUserComponent, ChangeRoleComponent, DialogContentExampleDialogComponent, CreateCategoryComponent, PageCategoryComponent, UpdateCategoryComponent, UploadFileComponent, CreateSongComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -86,7 +91,7 @@ export const appRoutes: Routes = [
     BrowserAnimationsModule,
     NavBarModule, FooterModule,
     NgxAudioPlayerModule,
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatDialogModule, Ng2SearchPipeModule
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatDialogModule, Ng2SearchPipeModule, MatProgressBarModule, MatSelectModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

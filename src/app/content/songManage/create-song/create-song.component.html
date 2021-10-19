@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0">
+                <form class="create-song" #f="ngForm" (ngSubmit)="f.form.valid &&ngSubmit()" novalidate>
+                    <mat-error class="alert alert-primary">{{status}}</mat-error>
+                    <!-- NAME SONG -->
+                    <mat-form-field style="width: 350px" appearance="outline">
+                        <mat-label>Name Song: </mat-label>
+                        <input matInput name="nameSong" [(ngModel)]="form.nameSong" #nameSong="ngModel" required>
+                        <mat-icon color="accent" matSuffix>music_video</mat-icon>
+                        <mat-error *ngIf="nameSong.hasError('required')">The name Song is required!</mat-error>
+                    </mat-form-field><br>
+                    <!-- LYRICS -->
+                    <mat-form-field style="width: 350px" appearance="outline">
+                        <mat-label>Lyrics : </mat-label>
+                        <textarea matInput name="lyrics" [(ngModel)]="form.lyrics" #lyrics="ngModel" required></textarea>
+                        <mat-icon color="accent" matSuffix>playlist_add_check</mat-icon>
+                        <mat-error *ngIf="lyrics.hasError('required')">The lyrics is required!</mat-error>
+                    </mat-form-field><br>
+                    <!--SELECT CATEGORY -->
+                    <mat-form-field style="width: 350px" appearance="outline">
+                        <mat-label>Category: </mat-label>
+                        <mat-select [formControl]="categoryControl" [(ngModel)]="form.category" required>
+<!--                            <mat-option>&#45;&#45;</mat-option>-->
+                            <mat-option *ngFor="let ctg of listCTGS" [value]="ctg">
+                                {{ctg.nameCategory}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="categoryControl.hasError('required')">Please choose an animal</mat-error>
+                        <mat-hint>{{categoryControl.value?.id}}</mat-hint>
+                    </mat-form-field>
+                    <mat-error *ngIf="!checkAvatar">Please Upload Avatar Song</mat-error>
+                    <app-upload-avatar (giveURLtoCreate)="onChangeAvatar($event)"></app-upload-avatar><br>
+                    <mat-error *ngIf="!checkFileMp3">Please Upload File Mp3</mat-error>
+                    <app-upload-file (giveURLtoCreate)="onMp3Url($event)"></app-upload-file><br>
+                    <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Create Song
+                        <mat-icon color="accent" matSuffix>add_circle_outline</mat-icon>
+                    </button>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>
