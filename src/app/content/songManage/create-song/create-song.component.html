@@ -27,7 +27,8 @@
                                 {{ctg.nameCategory}}
                             </mat-option>
                         </mat-select>
-                        <mat-error *ngIf="categoryControl.hasError('required')">Please choose an animal</mat-error>
+                        <mat-icon color="accent" matSuffix>format_line_spacing</mat-icon>
+                        <mat-error *ngIf="categoryControl.hasError('required')">Please choose an Category</mat-error>
                         <mat-hint>{{categoryControl.value?.id}}</mat-hint>
                     </mat-form-field><br>
                     <!-- SELECT SINGER -->
@@ -36,6 +37,7 @@
                         <mat-select [formControl]="toppings" multiple [(ngModel)]="form.singerList">
                             <mat-option *ngFor="let topping of singerList" [value]="topping">{{topping.nameSinger}}</mat-option>
                         </mat-select>
+                        <mat-icon color="accent" matSuffix>format_list_numbered_rtl</mat-icon>
                     </mat-form-field>
 
                     <mat-error *ngIf="!checkAvatar">Please Upload Avatar Song</mat-error>
