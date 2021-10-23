@@ -1,4 +1,5 @@
 import {Category} from './Category';
+import {Singer} from './Singer';
 
 export class Song {
   private nameSong: string;
@@ -6,12 +7,15 @@ export class Song {
   private avatarSong: string;
   private mp3Url: string;
   private category: Category;
+  private singerList: Singer[] = [];
 
-  constructor(nameSong: string, lyrics: string, avatarSong: string, mp3Url: string, category: Category) {
+
+  constructor(nameSong: string, lyrics: string, avatarSong: string, mp3Url: string, category: Category, singerList: Singer[]) {
     this.nameSong = nameSong;
     this.lyrics = lyrics;
     this.avatarSong = avatarSong;
     this.mp3Url = mp3Url;
     this.category = category;
+    this.singerList = singerList;
   }
 }

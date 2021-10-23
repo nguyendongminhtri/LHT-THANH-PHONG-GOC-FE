@@ -51,6 +51,9 @@ import { UploadFileComponent } from './upload/upload-file/upload-file.component'
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { CreateSongComponent } from './content/songManage/create-song/create-song.component';
 import {MatSelectModule} from '@angular/material/select';
+import { CreateSingerComponent } from './content/singerManage/create-singer/create-singer.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent, data: {title: 'Home'}},
@@ -66,6 +69,7 @@ export const appRoutes: Routes = [
   { path: 'page-category', component: PageCategoryComponent, data: {title: 'Page-Category'}},
   { path: 'update-category/:id', component: UpdateCategoryComponent, data: {title: 'Update-Category'}},
   { path: 'create-song', component: CreateSongComponent, data: {title: 'Create-Song'}},
+  { path: 'create-singer', component: CreateSingerComponent, data: {title: 'Create-Singer'}},
   {path: 'guide/getting-started',
     component: GettingStartedComponent,
     data: {title: 'Getting Started'}
@@ -73,7 +77,7 @@ export const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, ChangeAvatarComponent, ChangeProfileComponent, PageUserComponent, ChangeRoleComponent, DialogContentExampleDialogComponent, CreateCategoryComponent, PageCategoryComponent, UpdateCategoryComponent, UploadFileComponent, CreateSongComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, ChangeAvatarComponent, ChangeProfileComponent, PageUserComponent, ChangeRoleComponent, DialogContentExampleDialogComponent, CreateCategoryComponent, PageCategoryComponent, UpdateCategoryComponent, UploadFileComponent, CreateSongComponent, CreateSingerComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -86,12 +90,13 @@ export const appRoutes: Routes = [
     MatCheckboxModule,
     MatSlideToggleModule,
     MatButtonModule,
+    MatNativeDateModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule,
     NavBarModule, FooterModule,
     NgxAudioPlayerModule,
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatDialogModule, Ng2SearchPipeModule, MatProgressBarModule, MatSelectModule
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatPaginatorModule, MatDialogModule, Ng2SearchPipeModule, MatProgressBarModule, MatSelectModule, MatDatepickerModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
