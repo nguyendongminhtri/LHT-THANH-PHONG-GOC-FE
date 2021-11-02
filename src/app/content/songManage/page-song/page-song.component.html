@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <!--            <mat-error *ngIf="checkDelete" class="alert alert-primary">{{status}}</mat-error>-->
+            <mat-card style="margin: 50px 0">
+                <mat-card-title align="center" class="alert alert-primary">PAGE SONG</mat-card-title>
+<!--                <div class="search">-->
+<!--                    <mat-form-field style="width: 350px" appearance="outline">-->
+<!--                        <mat-label>Search Category:</mat-label>-->
+<!--                        <input matInput [(ngModel)]="searchText">-->
+<!--                        <mat-icon color="accent" matSuffix>search</mat-icon>-->
+<!--                    </mat-form-field><br>-->
+<!--                    <button *ngIf="isCheckUser" routerLink="/create-category" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Create Category-->
+<!--                        <mat-icon color="accent" matSuffix>add_circle_outline</mat-icon>-->
+<!--                    </button>-->
+<!--                </div>-->
+                <div class="row">
+                    <div class="column" *ngFor="let ctg of songs| filter: searchText">
+<!--                        <button [routerLink]="['/update-category/',ctg.id]" mat-icon-button color="primary">-->
+<!--                            <mat-icon>edit</mat-icon>-->
+<!--                        </button>-->
+                        <div class="card">
+                            <i style="font-size: 1.5vw; color: crimson">{{ctg.nameSong}}</i>
+                            <img class="img" [src]="ctg.avatarSong">
+                        </div>
+                    </div>
+                </div>
+
+                <mat-paginator [pageSizeOptions]="[3,6,15,30,90]" [length]="totalElements" (page)="nextPage($event)"></mat-paginator>
+            </mat-card>
+        </div>
+    </div>
+</div>

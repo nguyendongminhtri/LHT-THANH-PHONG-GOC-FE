@@ -54,6 +54,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { CreateSingerComponent } from './content/singerManage/create-singer/create-singer.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { CreateBandComponent } from './content/bandManage/create-band/create-band.component';
+import { PageSongComponent } from './content/songManage/page-song/page-song.component';
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent, data: {title: 'Home'}},
@@ -70,6 +72,8 @@ export const appRoutes: Routes = [
   { path: 'update-category/:id', component: UpdateCategoryComponent, data: {title: 'Update-Category'}},
   { path: 'create-song', component: CreateSongComponent, data: {title: 'Create-Song'}},
   { path: 'create-singer', component: CreateSingerComponent, data: {title: 'Create-Singer'}},
+  { path:'create-band', component: CreateBandComponent},
+  { path: 'page-song', component: PageSongComponent},
   {path: 'guide/getting-started',
     component: GettingStartedComponent,
     data: {title: 'Getting Started'}
@@ -77,7 +81,7 @@ export const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, ChangeAvatarComponent, ChangeProfileComponent, PageUserComponent, ChangeRoleComponent, DialogContentExampleDialogComponent, CreateCategoryComponent, PageCategoryComponent, UpdateCategoryComponent, UploadFileComponent, CreateSongComponent, CreateSingerComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, ChangeAvatarComponent, ChangeProfileComponent, PageUserComponent, ChangeRoleComponent, DialogContentExampleDialogComponent, CreateCategoryComponent, PageCategoryComponent, UpdateCategoryComponent, UploadFileComponent, CreateSongComponent, CreateSingerComponent, CreateBandComponent, PageSongComponent],
   imports: [
     HttpClientModule,
     BrowserModule,

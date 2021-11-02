@@ -9,8 +9,11 @@ import {UserAccount} from '../model/UserAccount';
 })
 export class AdminService {
 //API LOCAL
-  private API_PAGE_USER = environment.API_LOCAL+'user';
-  private API_CHANGE_ROLE = this.API_PAGE_USER+'/change/role';
+//   private API_PAGE_USER = environment.API_LOCAL+'user';
+//   private API_CHANGE_ROLE = this.API_PAGE_USER+'/change/role';
+  //API SERVER
+   private API_PAGE_USER = environment.API_SERVER+'user';
+   private API_CHANGE_ROLE = this.API_PAGE_USER+'/change/role';
   constructor(private http: HttpClient) { }
   pageUser(request){
     const params = request;

@@ -11,7 +11,6 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
     status = 'Please fill in the form to LOGIN -->';
-    status1 = ''
     form: any = {};
     hide = true;
     isLogin = false;

@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0">
+                <form class="create-band" #f="ngForm" (ngSubmit)="f.form.valid&&createBand()" novalidate>
+                    <mat-error class="alert alert-primary">{{status}}</mat-error>
+                    <mat-form-field style="width: 350px" appearance="outline">
+                        <mat-label>Name Band:</mat-label>
+                        <input matInput name="nameBand" [(ngModel)]="form.nameBand" #nameBand = "ngModel" required>
+                        <mat-icon matSuffix> <img src="../../../../assets/images/icons/create-band.png" height="25" width="25"/></mat-icon>
+                        <mat-error *ngIf="nameBand.hasError('required')">The name band is required!</mat-error>
+                    </mat-form-field><br>
+                    <mat-form-field style="width: 350px" appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput name="description" [(ngModel)]="form.description" #description="ngModel" required=""></textarea>
+                        <mat-icon matSuffix> <img src="../../../../assets/images/icons/create-band.png" height="25" width="25"/></mat-icon>
+                        <mat-error *ngIf="description.hasError('required')">The name band is required!</mat-error>
+                    </mat-form-field><br>
+                    <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Create Singer
+                        <mat-icon matSuffix> <img src="../../../../assets/images/icons/create-band.png" height="25" width="25"/></mat-icon>
+                    </button>
+                </form>
+                <app-upload-avatar (giveURLtoCreate)="uploadAvatar($event)"></app-upload-avatar>
+            </mat-card>
+        </div>
+    </div>
+</div>

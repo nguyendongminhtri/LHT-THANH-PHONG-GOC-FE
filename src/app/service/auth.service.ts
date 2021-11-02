@@ -11,14 +11,17 @@ import {SignInForm} from "../model/SignInForm";
 })
 export class AuthService {
 //API_LOCAL
-  private API_SIGNUP = environment.API_LOCAL+'signup';
-  private API_SIGNIN = environment.API_LOCAL+'signin';
-  private API_CHANGE_PASSWORD = environment.API_LOCAL + 'change-password';
-  private API_CHANGE_AVATAR = environment.API_LOCAL + 'change-avatar';
-  private API_CHANGE_PROFILE = environment.API_LOCAL+'change-profile';
+//   private API_SIGNUP = environment.API_LOCAL+'signup';
+  // private API_SIGNIN = environment.API_LOCAL+'signin';
+  // private API_CHANGE_PASSWORD = environment.API_LOCAL + 'change-password';
+  // private API_CHANGE_AVATAR = environment.API_LOCAL + 'change-avatar';
+  // private API_CHANGE_PROFILE = environment.API_LOCAL+'change-profile';
   //API SERVER
-  // private API_SIGNIN = environment.API_SERVER+'signin';
-
+  private API_SIGNIN = environment.API_SERVER+'signin';
+  private API_SIGNUP = environment.API_SERVER+'signup';
+  private API_CHANGE_PASSWORD = environment.API_SERVER+'change-password';
+  private API_CHANGE_AVATAR = environment.API_SERVER+'change-avatar';
+  private API_CHANGE_PROFILE = environment.API_SERVER+'change-profile';
   constructor(private http: HttpClient) { }
   signUp (signUp: SignUpForm): Observable<any>{
     return this.http.post<any>(this.API_SIGNUP, signUp);

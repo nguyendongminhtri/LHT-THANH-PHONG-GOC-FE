@@ -33,21 +33,28 @@
                     </mat-form-field><br>
                     <!-- SELECT SINGER -->
                     <mat-form-field style="width: 350px" appearance="outline">
-                        <mat-label>Singers</mat-label>
-                        <mat-select [formControl]="toppings" multiple [(ngModel)]="form.singerList">
-                            <mat-option *ngFor="let topping of singerList" [value]="topping">{{topping.nameSinger}}</mat-option>
+                        <mat-label>Select Singers</mat-label>
+                        <mat-select name="singerList" multiple [(ngModel)]="form.singerList">
+                            <mat-option *ngFor="let singer of singerList" [value]="singer">{{singer.nameSinger}}</mat-option>
                         </mat-select>
                         <mat-icon color="accent" matSuffix>format_list_numbered_rtl</mat-icon>
-                    </mat-form-field>
-
-                    <mat-error *ngIf="!checkAvatar">Please Upload Avatar Song</mat-error>
-                    <app-upload-avatar (giveURLtoCreate)="onChangeAvatar($event)"></app-upload-avatar><br>
-                    <mat-error *ngIf="!checkFileMp3">Please Upload File Mp3</mat-error>
-                    <app-upload-file (giveURLtoCreate)="onMp3Url($event)"></app-upload-file><br>
+                    </mat-form-field><br>
+                    <!--SELECT BAND -->
+                    <mat-form-field style="width: 350px" appearance="outline">
+                        <mat-label>Select Band</mat-label>
+                        <mat-select name="bandList" multiple [(ngModel)]="form.bandList">
+                            <mat-option *ngFor="let band of bandList" [value]="band">{{band.nameBand}}</mat-option>
+                        </mat-select>
+                        <mat-icon color="accent" matSuffix>format_list_numbered_rtl</mat-icon>
+                    </mat-form-field><br>
                     <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Create Song
                         <mat-icon color="accent" matSuffix>add_circle_outline</mat-icon>
                     </button>
                 </form>
+                <mat-error *ngIf="!checkAvatar">Please Upload Avatar Song</mat-error>
+                <app-upload-avatar (giveURLtoCreate)="onChangeAvatar($event)"></app-upload-avatar><br>
+                <mat-error *ngIf="!checkFileMp3">Please Upload File Mp3</mat-error>
+                <app-upload-file (giveURLtoCreate)="onMp3Url($event)"></app-upload-file><br>
             </mat-card>
         </div>
     </div>
