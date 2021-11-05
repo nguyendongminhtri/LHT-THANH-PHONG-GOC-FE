@@ -1,11 +1,13 @@
 .column {
   float: left;
   width: 33.3%;
+
   padding: 10px 10px;
 }
 .card {
   box-shadow: 12px 12px 2px 1px rgba(60,84,255,0.94);
   text-align: center;
+  height: 400px;
   background-color: #17e8e8;
 }
 div.card {

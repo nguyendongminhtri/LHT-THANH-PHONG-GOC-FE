@@ -22,7 +22,21 @@
                         <div class="card">
                             <i style="font-size: 1.5vw; color: crimson">{{ctg.nameSong}}</i>
                             <img class="img" [src]="ctg.avatarSong">
+                            <div *ngIf="ctg.singerList.length >0">
+                                <b style="font-size: 1.5vw; color: blue">Singer:</b>
+                                <div *ngFor="let sg of ctg.singerList">
+                                    <i  style="font-size: 1.5vw; color: crimson">{{sg.nameSinger}}</i>
+                                </div>
+                            </div>
+                            <div *ngIf="ctg.bandList.length >0">
+                                <b style="font-size: 1.5vw; color: blue">Band:</b>
+                                <div *ngFor="let sg of ctg.bandList">
+                                    <i  style="font-size: 1.5vw; color: crimson">{{sg.nameBand}}</i>
+                                </div>
+                            </div>
+
                         </div>
+
                     </div>
                 </div>
 

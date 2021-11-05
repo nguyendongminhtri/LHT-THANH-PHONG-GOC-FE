@@ -22,6 +22,7 @@ export class PageSongComponent implements OnInit {
     this.songService.pageSong(request).subscribe(data => {
       console.log('data --> ', data);
       this.songs = data['content'];
+      console.log('singerList -->', data['singerList']);
       console.log('data[content] ---->', data['content']);
       this.totalElements = data['totalElements'];
       console.log('data[totalElements] == ', data['totalElements']);
